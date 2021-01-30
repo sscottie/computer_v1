@@ -8,8 +8,11 @@ public class Computer_V1 {
 			return ;
 		}
 		if (args.length == 1) {
-			Variable test = new Variable(2, -3);
-			System.out.println(test);
+			Expression expression = new Expression();
+			String[] expression_parts = args[0].split(" = ");
+			expression.parse(expression_parts[0].replace(" ", ""));
+			expression.parse(expression_parts[1]);
+			expression.formatedPrint();
 			return ;
 		}
 	}

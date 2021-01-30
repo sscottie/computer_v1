@@ -1,8 +1,8 @@
 package com.computer;
 
 public class Variable {
-	private int pow;
-	private double mult;
+	public int pow;
+	public double mult;
 
 	public Variable() {
 		this.mult = 1.0;
@@ -16,6 +16,16 @@ public class Variable {
 
 	@Override
 	public String toString() {
-		return (this.mult + " * X ^ " + this.pow);
+		if (this.mult < 0) {
+			if (this.pow == 0)
+				return ("- " + this.mult * -1 + " * X^" + this.pow);
+			else {
+				return (" - " + this.mult * -1 + " * X^" + this.pow);
+
+			}
+		}
+		else {
+			return (this.mult + " * X^" + this.pow);
+		}
 	}
 }
