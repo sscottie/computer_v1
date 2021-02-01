@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Expression extends Variable {
+public class Expression extends ArrayList<Variable> {
 	public ArrayList<Variable> expression;
+	private int size;
 
 	public Expression() {
 		this.expression = new ArrayList<Variable>();
@@ -17,11 +18,11 @@ public class Expression extends Variable {
 		while (matcher.find()) {
 			expression.add(Integer.parseInt(matcher.group(2)),
 					new Variable(Integer.parseInt(matcher.group(2)), Double.parseDouble(matcher.group(1))));
-//			System.out.println(args.substring(matcher.start(), matcher.end())
-//					+ " ; mult = "
-//					+ matcher.group(1)
-//					+ " ; pow = "
-//					+ matcher.group(2));
+			System.out.println(args.substring(matcher.start(), matcher.end())
+					+ " ; mult = "
+					+ matcher.group(1)
+					+ " ; pow = "
+					+ matcher.group(2));
 		}
 	}
 
@@ -33,5 +34,15 @@ public class Expression extends Variable {
 			System.out.print(vars);
 		}
 		System.out.println(" = 0");
+	}
+
+	@Override
+	public void add(int index, Variable element) {
+		try {
+			expression.get(index);
+			expression.get(index).mult -= element.mult;
+		} catch (Exception e) {
+			super.add(index, element);
+		}
 	}
 }

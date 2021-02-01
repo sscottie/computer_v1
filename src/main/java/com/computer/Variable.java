@@ -21,7 +21,6 @@ public class Variable {
 				return ("- " + this.mult * -1 + " * X^" + this.pow);
 			else {
 				return (" - " + this.mult * -1 + " * X^" + this.pow);
-
 			}
 		}
 		else {
