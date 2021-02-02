@@ -16,6 +16,7 @@ public class Computer_V1 {
             expression.parse_left(expression_parts[0].replace(" ", ""));
             expression.parse_right(expression_parts[1].replace(" ", ""));
             expression.formatedPrint();
+            Solver solver = new Solver(expression);
             return;
         }
     }
